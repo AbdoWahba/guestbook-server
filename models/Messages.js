@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   Auther: {
     type: Schema.Types.ObjectId,
     ref: 'Users',
-    required: 15,
+    required: true,
   },
   title: { type: String, required: true },
   body: { type: String, required: true },
