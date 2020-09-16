@@ -1,0 +1,23 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "description": "challenge for junior MERN stack developer in coformatique company",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd ./client && yarn start",
+    "dev-server": "concurrently \"yarn run server\" \"yarn run client\"",
+    "install-dep": "yarn install && cd client && yarn install"
+  },
+  "author": "Abdelrhman Wahba",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "mongoose": "^5.10.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
