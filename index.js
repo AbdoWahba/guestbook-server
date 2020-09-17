@@ -18,7 +18,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use('/api/users', user);
-app.use('/api/aith', auth);
+app.use('/api/auth', auth);
 
 const PORT = process.env.PORT || 6000;
 
