@@ -17,11 +17,13 @@ module.exports = (req, res) => {
     .then((salt) => bcrypt.hash(newUser.password, salt))
     .then((hash) => {
       newUser.password = hash;
-      newUser
-        .save()
-        .then((user) =>
-          res.json({ id: user.id, name: user.name, email: user.email })
-        );
+      newUser.save().then((user) => {
+        const authToken = user.generateAuthTocken();
+
+        res
+          .header('x-auth-token', authToken)
+          .json({ id: user.id, name: user.name, email: user.email });
+      });
     })
     .catch((err) => console.log(err));
 };
