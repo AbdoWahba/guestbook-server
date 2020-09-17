@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const user = require('./routes/users');
+const auth = require('./routes/auth');
 const app = express();
 
 app.use(express.json());
@@ -17,6 +18,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use('/api/users', user);
+app.use('/api/aith', auth);
 
 const PORT = process.env.PORT || 6000;
 
