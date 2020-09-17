@@ -22,6 +22,7 @@ module.exports = (req, res) => {
 
         res
           .header('x-auth-token', authToken)
+          .header('Access-Control-Expose-Headers', 'x-auth-token')
           .json({ id: user.id, name: user.name, email: user.email });
       });
     })
