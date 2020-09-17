@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 const Schema = mongoose.Schema;
 
@@ -21,5 +22,14 @@ const UserSchema = new Schema({
   dob: { type: Date },
   register_date: { type: Date, default: Date.now() },
 });
+
+UserSchema.methods.generateAuthTocken = function () {
+  const authToken = jwt.sign(
+    { _id: this._id, email: this.email },
+    'hollyMolly'
+  );
+
+  return authToken;
+};
 
 module.exports = User = mongoose.model('user', UserSchema);
