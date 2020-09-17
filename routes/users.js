@@ -1,10 +1,10 @@
 const express = require('express');
-const CreateUserSchemaValidator = require('../validation/Users/CreateUserValidatorSchema');
+const CreateUserSchemaValidator = require('../validation/users/CreateUserValidatorSchema');
 const JoiValidatorMiddleware = require('../middlewares/JoiValidatorMiddleware');
 const CreateUserController = require('../controllers/users/CreateUserController');
 const router = express.Router();
 
-// @route /api/item
+// @route /api/users
 // @desc create new user
 // @access public
 router.post(
